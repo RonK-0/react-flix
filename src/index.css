@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body{
+        @apply font-text-netflix;
+    }
+    h1,h2,h3,h4,h5,h6{
+        @apply font-bold;
+    }
+    p{
+        @apply mb-4;
+    }
+    @font-face {
+        font-family: "Netflix Sans";
+        src: url(./fonts/NetflixSans-Regular.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "Neflix Sans Bold";
+        src: url(./fonts/NetflixSans-Bold.woff2) format("woff2");
+    }
+    input,textarea{
+        @apply outline-none focus:outline-none;
+    }
+
+}
+
+@layer components{
+    .btn{
+        @apply px-3 py-1 inline-block
+        bg-transparent text-white border border-white rounded-md
+        transition-all duration-300 text-sm;
+    }
+    .btn-accent{
+        @apply bg-accent border-accent hover:bg-accent_hover hover:border-accent_hover;
+    }
+    .btn-btdark{
+        @apply bg-btdark/70;
+    }
+    .btn-transparent{
+        @apply bg-transparent border-transparent;
+    }
+
+    .input-wrapper{
+        @apply relative mb-5;
+        input{
+            @apply w-full px-4 py-5 rounded-sm bg-black/45
+            border border-white/70 leading-none
+            text-white/60 focus:border-white focus:text-white valid:text-white;
+        }
+        label{
+            @apply absolute ty-a left-5 text-white/70 transition-all duration-200 select-none pointer-events-none;
+        }
+        input:focus + label, input:valid + label{
+            @apply text-xs top-3 left-4;
+        }
+    }
+
+    .feature-list .features:nth-child(even) .content{
+        @apply order-1;
+    }
+
+    .answer p:not(:last-of-type){
+        @apply text-lg mb-5;
+    }
+    .accordion *{
+        @apply select-none;
+    }
+
+    .footer {
+        @apply px-6 py-8 bg-black;
+        .footer__links>a{
+            @apply w-1/2 lg:w-1/4 text-sm;
+        }
+        a, .footer__links>a{
+            @apply text-white/85 underline hover:text-white;
+        }
+    }
+    
+
+}
+
+@layer utilities{
+    .f-col{ @apply flex flex-col; }
+    .f-col-center{ @apply flex flex-col items-center justify-center; }
+    .center {@apply items-center justify-center; }
+    .between-center {@apply justify-between items-center; }
+    .between-end {@apply justify-between items-end; }
+
+    .ft-el{ @apply font-extralight }
+    .ft-lt{ @apply font-light }
+    .ft-nm{ @apply font-normal }
+    .ft-md{ @apply font-medium }
+    .ft-sb{ @apply font-semibold }
+    .ft-b{ @apply font-bold }
+    .ft-ex{ @apply font-extrabold }
+
+    .mx-a{ @apply mx-auto }
+
+    .tx-a{ @apply left-1/2 -translate-x-1/2 }
+    .ty-a{ @apply top-1/2 -translate-y-1/2 }
+    .txy-a{ @apply top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 }
+
+    .pointer{ @apply cursor-pointer; }
+}
