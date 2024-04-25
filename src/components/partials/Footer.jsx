@@ -4,7 +4,7 @@ import { PiTranslate } from "react-icons/pi";
 
 const Footer = () => {
   return (
-    <div className='footer border-t-[#333] border-t-8 f-col gap-6 items-center'>
+    <div className='footer border-t-[#333] border-t-8 f-col gap-6 items-center px-6 py-8 bg-black'>
       <div className='f-col gap-6 items-start'>
         <Link to={'#'} className=''>Questions? Contact Us.</Link>
         <div className="footer__links flex flex-wrap  gap-y-4">

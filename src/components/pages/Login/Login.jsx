@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../../partials/Header'
-
+import { PageTitle } from '../../helpers/functions-general';
 import { LiaEye, LiaEyeSlash  } from "react-icons/lia";
 import { Link, useNavigate } from 'react-router-dom';
+import { PiTranslate } from "react-icons/pi";
 
 const Login = () => {
+    PageTitle('Login - Netflix')
 
     const navigate = useNavigate();
     const [hasValue, setHasValue] = React.useState(false);
@@ -35,14 +37,13 @@ const Login = () => {
 
     return (
         <>
-            <div className="login bg-[url('../../img/login/bg-login.jpg')] h-screen w-full bg-cover isolate relative">
+            <div className="login bg-[url('../../img/login/bg-login.jpg')] h-full w-full bg-cover isolate relative">
                 <div className="backdrop h-full w-full absolute top-0 left-0 bg-black/50 z-[-1]"></div>
-                <Header isLogin={true}/>
+                <Header isLogin={true} className='w-full'/>
 
-                <div className="form absolute tx-a text-white">
-                    <div className='w-[450px] bg-black/70 rounded-md h-[70vh] p-16'>
+                <div className="form text-white py-12 f-col-center">
+                    <div className='w-[450px] bg-black/70 rounded-md h-full p-16'>
                         <h1 className='text-3xl text-white mb-5 ft-b tracking-[0.05rem]'>Sign In</h1>
-
                         <form action="" className='f-col'>
                             <div className="input-wrapper">
                                 <input type="email" name="Email" id="Email" required onChange={(e) => handleGetEmail(e)}/>
@@ -68,10 +69,25 @@ const Login = () => {
 
                             <p className='text-xs text-balance text-white/60'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <Link to={"#"} className='text-blue-600 hover:underline'>Learn more.</Link></p>
                         </form>
-
                     </div>
                 </div>
 
+                <div className='footer f-col gap-6 items-center px-6 py-8 bg-black/60'>
+                    <div className='f-col gap-6 items-start w-5/6 mx-a'>
+                        <Link to={'#'} className=''>Questions? Contact Us.</Link>
+                        <div className="footer__links flex flex-wrap gap-y-4  w-full">
+                        <Link to={'#'}>FAQ</Link>
+                        <Link to={'#'}>Help Center</Link>
+                        <Link to={'#'}>Terms of Use</Link>
+                        <Link to={'#'}>Privacy</Link>
+                        <Link to={'#'}>Cookie Preferences</Link>
+                        <Link to={'#'}>Corporate Information</Link>
+                        </div>
+                        <button className='btn btn-btdark flex gap-2'><PiTranslate /> English</button>
+                        <p className='text-sm text-white/70'>Netflix Philippines</p>
+                    </div>
+                </div>
+                
             </div>
         </>
     )

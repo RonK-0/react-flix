@@ -5,8 +5,10 @@ import { feature, faq } from './data';
 import Accordion from './Accordion';
 import EmailForm from './EmailForm';
 import Footer from '../../partials/Footer';
+import { PageTitle } from '../../helpers/functions-general';
 
 const Home = () => {
+  PageTitle('Netflix Philippines - Watch TV Shows Online, Watch Movies Online')
   return (
     <>
       <div className="bg-[url('../../img/login/bg-login.jpg')] h-[74vh] w-full bg-cover isolate relative">
@@ -32,7 +34,7 @@ const Home = () => {
         <p className='text-center text-2xl text-white mb-0 leading-none'>Ready to watch? Enter your email to create or restart your membership.</p>
         <EmailForm />
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }

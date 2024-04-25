@@ -4,7 +4,7 @@
 
 @layer base{
     body{
-        @apply font-text-netflix;
+        @apply font-text-netflix overflow-x-hidden;
     }
     h1,h2,h3,h4,h5,h6{
         @apply font-bold;
@@ -20,7 +20,7 @@
         font-family: "Neflix Sans Bold";
         src: url(./fonts/NetflixSans-Bold.woff2) format("woff2");
     }
-    input,textarea{
+    input,textarea, button{
         @apply outline-none focus:outline-none;
     }
 
@@ -57,28 +57,80 @@
         }
     }
 
-    .feature-list .features:nth-child(even) .content{
-        @apply order-1;
-    }
+    .feature-list .features:nth-child(even) .content{ @apply order-1; }
 
-    .answer p:not(:last-of-type){
-        @apply text-lg mb-5;
-    }
-    .accordion *{
-        @apply select-none;
-    }
+    .answer p:not(:last-of-type){ @apply text-lg mb-5; }
+    .accordion *{ @apply select-none; }
 
     .footer {
-        @apply px-6 py-8 bg-black;
-        .footer__links>a{
+        .footer__links>*{
             @apply w-1/2 lg:w-1/4 text-sm;
         }
-        a, .footer__links>a{
+        a, .footer__links>*{
             @apply text-white/85 underline hover:text-white;
         }
     }
-    
+    .header__buttons>ul>li>button{
+        @apply text-2xl text-white;
+    }
 
+    .banner .header{
+        li.nav__link{
+            @apply text-stone-300;
+        }
+        li.nav__link.active{
+            @apply font-bold text-white;
+        }
+    }
+    .slider-wrapper{
+        @apply relative;
+        .slick-dots{
+            @apply relative md:absolute md:top-[-55px] xl:top-[-65px] h-fit w-full md:w-fit right-0;
+            ul {
+                @apply md:text-right text-center;
+                li{
+                    @apply h-1 w-5 p-0;
+                    button{ @apply bg-white/50 h-1 w-6 p-0 before:hidden; }
+                }
+                li.slick-active button{ @apply bg-white; }
+            }
+        }
+        
+        .slick-arrow{
+            @apply h-full f-col-center mt-[-3px]
+            opacity-100 xl:opacity-0 hover:opacity-100 
+            /* bg-transparent hover:bg-white/20 */
+            transition-all duration-200 before:hidden;
+            svg{ @apply h-fit text-white text-4xl; }
+        }
+        
+        .slick-list{
+            @apply overflow-y-visible overflow-x-hidden mx-2;
+            .slick-track{
+                @apply flex py-6 pointer-events-none *:pointer-events-auto;
+                .slick-slide{
+                    @apply mx-2 transition-all duration-500 hover:scale-110;
+                }
+            }
+            /* .slick-track:hover > *{
+                @apply brightness-[25%];
+            }
+            .slick-track:hover > *:hover{
+                @apply brightness-100;
+            } */
+        }
+    }
+
+    .modal_movie_info{
+        @apply *:text-white;
+        .movie__info::before{
+            @apply content-[''] absolute bottom-[95%] left-0
+            h-[100px] block w-full z-[1]
+            bg-gradient-to-t from-[rgba(20,20,20,1)]
+            from-10% via-[rgba(20,20,20,0.4)]
+            via-60% to-transparent
+        }
+    }
 }
 
 @layer utilities{

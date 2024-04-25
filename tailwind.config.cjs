@@ -60,6 +60,8 @@ export default {
       },
       boxShadow:{
         // 'top_button_shadow'     : '4px 4px 10px rgba(0, 0, 0, 0.2)',
+        banner_top_shadow: "inset 0 18px 35px 0px rgba(0,0,0,0.8)",
+
       },
       padding:{
         // 'container_p' : 'calc(1.5rem * 0.5)',
