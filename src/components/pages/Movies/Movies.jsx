@@ -7,10 +7,14 @@ import MovieSlider from './MovieSlider';
 import ModalMovieInfo from './ModalMovieInfo';
 import Footer_Alt from '../../partials/Footer_Alt';
 import TopMoviesSlider from './TopMoviesSlider';
+import ModalSearch from './ModalSearch';
 
 const Movies = () => {
     const [showMovieInfo, setMovieInfo] = React.useState(false)
     const [movieData, setMovieData] = React.useState(null)
+    const [search, setSearch] = React.useState(false)
+
+    const handleShowSearch = ()=> setSearch(true)
 
     return (
         <>
@@ -31,7 +35,7 @@ const Movies = () => {
                         </div>
                         <div className='header__buttons'>
                             <ul className='flex items-center gap-5'>
-                                <li><button><TbSearch /></button></li>
+                                <li><button onClick={handleShowSearch}><TbSearch /></button></li>
                                 <li><button><TbBell /></button></li>
                                 <li><button className='flex items-center gap-3'><img src="https://via.placeholder.com/50" alt="" className='rounded-md size-[35px]' /> <TbCaretDownFilled /></button></li>
                             </ul>
@@ -54,6 +58,7 @@ const Movies = () => {
                 </div>
             </div>
             {showMovieInfo && <ModalMovieInfo setMovieInfo={setMovieInfo} movieData={movieData}/>}
+            {search && <ModalSearch setSearch={setSearch} />}
             <Footer_Alt/>
         </>
     )

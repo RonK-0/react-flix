@@ -4,7 +4,7 @@
 
 @layer base{
     body{
-        @apply font-text-netflix overflow-x-hidden;
+        @apply font-text-netflix overflow-x-hidden text-white;
     }
     h1,h2,h3,h4,h5,h6{
         @apply font-bold;
