@@ -131,6 +131,30 @@
             via-60% to-transparent
         }
     }
+
+    .custom-scroll{
+        scrollbar-color: #141414;
+        scrolbar-width: thin;
+    }
+    /* width */
+    .custom-scroll::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    /* Track */
+    .custom-scroll::-webkit-scrollbar-track {
+        @apply bg-dark;
+    }
+
+    /* Handle */
+    .custom-scroll::-webkit-scrollbar-thumb {
+        @apply bg-[#333]
+    }
+
+    /* Handle on hover */
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+        @apply bg-dark brightness-200;
+    }
 }
 
 @layer utilities{

@@ -32,7 +32,7 @@ const MovieSlider = ({setMovieInfo, movies, setMovieData, grouping, sliderHeader
         dots: true,
         centerMode: true,
         infinite: true,
-        speed: 1000,
+        speed: 500,
         slidesToShow: 5,
         slidesToScroll: 1,
         arrows: true,

@@ -12,7 +12,7 @@ const Movies = () => {
 
     return (
         <>
-            <div className='bg-[#141414] text-white'>
+            <div className='bg-[#141414] text-white custom-scroll'>
                 <div className={`banner bg-[url(../img/movies/banner-movie.jpg)] bg-cover bg-center h-[90vh] relative isolate`}>
                     <div className="backdrop h-full w-full absolute top-0 left-0 bg-black/30 z-[-1]"></div>
                     <div className="header px-4 py-2 bg-gradient-to-b from-black/70 to-black/0 flex between-center">
