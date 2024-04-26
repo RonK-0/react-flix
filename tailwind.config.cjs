@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 export default {
   content: ["./src/**/*.{js,jsx}"],
   darkMode: 'selector',
@@ -62,6 +63,13 @@ export default {
       boxShadow:{
         // 'top_button_shadow'     : '4px 4px 10px rgba(0, 0, 0, 0.2)',
       },
+      textShadow: {
+        sm: '1px 1px 2px var(--tw-shadow-color)',
+        DEFAULT: '2px 2px 4px var(--tw-shadow-color)',
+        lg: '4px 4px 8px var(--tw-shadow-color)',
+        xl: '4px 4px 16px var(--tw-shadow-color)',
+        top_num_shadow: "2px 2px 0 #888,-2px -2px 0 #888, 2px -2px 0 #888, -2px 2px 0 #888, 2px 2px 0 #888;"
+      },
       padding:{
         // 'container_p' : 'calc(1.5rem * 0.5)',
         // 'propertySolution_p' : 'clamp(40px, 3.3vw, 90px) clamp(24px, 1.66vw, 48px)',
@@ -81,6 +89,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 }
 

@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { baseImgUrl } from '../../helpers/functions-general'
 import { TbSearch , TbBell, TbCaretDownFilled, TbPlayerPlayFilled, TbInfoCircle  } from "react-icons/tb";
+import { movies } from './data';
 import MovieSlider from './MovieSlider';
 import ModalMovieInfo from './ModalMovieInfo';
-import { movies } from './data';
+import Footer_Alt from '../../partials/Footer_Alt';
+import TopMoviesSlider from './TopMoviesSlider';
 
 const Movies = () => {
     const [showMovieInfo, setMovieInfo] = React.useState(false)
@@ -45,11 +47,14 @@ const Movies = () => {
                 </div>
                 <div className="slider-wrapper px-10 py-20 overflow-x-hidden">
                     <MovieSlider setMovieInfo={setMovieInfo} movies={movies} setMovieData={setMovieData} grouping={'trending'} sliderHeader={'Trending Movies'}/>
+                    <TopMoviesSlider setMovieInfo={setMovieInfo} movies={movies} setMovieData={setMovieData} grouping={'top_10_tv_ph'} sliderHeader={'Top 10 TV Shows in the Philipines Today'}/>
                     <MovieSlider setMovieInfo={setMovieInfo} movies={movies} setMovieData={setMovieData} grouping={'western'} sliderHeader={'Western Movies'}/>
+                    <TopMoviesSlider setMovieInfo={setMovieInfo} movies={movies} setMovieData={setMovieData} grouping={'top_10_movies_ph'} sliderHeader={'Top 10 Movies in the Philipines Today'}/>
                     <MovieSlider setMovieInfo={setMovieInfo} movies={movies} setMovieData={setMovieData} grouping={'asian'} sliderHeader={'Asian Movies'}/>
                 </div>
             </div>
             {showMovieInfo && <ModalMovieInfo setMovieInfo={setMovieInfo} movieData={movieData}/>}
+            <Footer_Alt/>
         </>
     )
 }

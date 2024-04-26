@@ -109,7 +109,15 @@
             .slick-track{
                 @apply flex py-6 pointer-events-none *:pointer-events-auto;
                 .slick-slide{
-                    @apply mx-2 transition-all duration-500 hover:scale-110;
+                    @apply mx-2 transition-all duration-300;
+                    button>img{
+                        @apply p-0 outline outline-transparent
+                        outline-2 rounded-sm
+                        transition-all duration-300;
+                    }
+                    button:hover>img{
+                        @apply outline-white;
+                    }
                 }
             }
             /* .slick-track:hover > *{
